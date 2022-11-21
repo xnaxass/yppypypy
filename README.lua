@@ -6315,7 +6315,7 @@ function QuestCheck()
             CFrameQuest = CFrame.new(632.698608, 73.1055908, 918.666321, -0.0319722369, 8.96074881e-10, -0.999488771, 1.36326533e-10, 1, 8.92172336e-10, 0.999488771, -1.07732087e-10, -0.0319722369)
             CFrameMon = CFrame.new(506.323364, 72.9597626, 9.77466297, -0.339674324, -7.69937536e-09, -0.940543115, -3.40559581e-08, 1, 4.11311296e-09, 0.940543115, 3.34282184e-08, -0.339674324)
 			if getgenv().LevelFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1200 then
-                
+                ByPass(CFrameQuest)
             end
 		elseif MyLevel == 875 or MyLevel <= 899 then
             Mon = "Marine Lieutenant [Lv. 875]"
@@ -7338,6 +7338,7 @@ task.spawn(function()
                     if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 300 and game:GetService("Players")["LocalPlayer"].Data.Beli.Value >= 3000000 then
                         unequip("Dragon Claw")
                         wait(.1)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
                     end 
                 end
             end
